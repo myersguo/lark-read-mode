@@ -1,0 +1,16 @@
+{
+  "name": "lark-read-mode",
+  "version": "1.0.0",
+  "description": "set larkdoc to readmode default",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "myersguo@gmail.com",
+  "license": "Apache License 2.0",
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "javascript-obfuscator": "^4.1.1"
+  }
+}

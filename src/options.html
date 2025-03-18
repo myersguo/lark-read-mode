@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lark Wiki AutoRead 设置</title>
+  <style>
+    body {
+      width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .container {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .description {
+      margin-bottom: 20px;
+      color: #666;
+      line-height: 1.5;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 20px;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #eee;
+      border-radius: 4px;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      border-bottom: 1px solid #eee;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+    .domain-text {
+      flex-grow: 1;
+      word-break: break-all;
+    }
+    .input-group {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    input {
+      flex-grow: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px 0 0 4px;
+      font-size: 14px;
+    }
+    #addDomain {
+      padding: 10px 15px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+    #addDomain:hover {
+      background-color: #3367d6;
+    }
+    .delete-btn {
+      padding: 5px 10px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .delete-btn:hover {
+      background-color: #d32f2f;
+    }
+    #resetDomains {
+      padding: 10px 15px;
+      background-color: #757575;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #resetDomains:hover {
+      background-color: #616161;
+    }
+    #saveStatus {
+      text-align: center;
+      margin-top: 15px;
+      color: #4CAF50;
+      transition: opacity 0.5s;
+      opacity: 0;
+    }
+    h2 {
+      margin-top: 0;
+      color: #333;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lark Wiki AutoRead 设置</h1>
+  
+  <div class="container">
+    <h2>域名配置</h2>
+    
+    <div class="description">
+      插件将只在匹配以下域名模式的页面上自动设置阅读模式。可以使用通配符(*)来匹配多个页面。
+    </div>
+    
+    <div class="input-group">
+      <input type="text" id="newDomain" placeholder="输入新域名，例如 https://example.com/wiki/*">
+      <button id="addDomain">添加</button>
+    </div>
+    
+    <ul id="domainList"></ul>
+    
+    <button id="resetDomains">重置为默认域名</button>
+    
+    <div id="saveStatus"></div>
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html>

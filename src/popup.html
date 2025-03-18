@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lark Wiki AutoRead 设置</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      padding: 5px;
+      border-bottom: 1px solid #eee;
+    }
+    input {
+      width: 220px;
+      padding: 5px;
+      margin-right: 5px;
+    }
+    button {
+      cursor: pointer;
+    }
+    .input-group {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .reset-btn {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>域名配置</h2>
+  <div class="input-group">
+    <input type="text" id="newDomain" placeholder="输入新域名，例如 https://example.com/wiki/*">
+    <button id="addDomain">添加</button>
+  </div>
+  <ul id="domainList"></ul>
+  <button id="resetDomains" class="reset-btn">重置为默认域名</button>
+  <script src="popup.js"></script>
+</body>
+</html>
