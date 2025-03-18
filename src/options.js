@@ -5,21 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const resetBtn = document.getElementById('resetDomains');
   const saveStatus = document.getElementById('saveStatus');
 
-  // 默认域名
   const defaultDomains = [
     "https://bytedance.larkoffice.com/wiki/*",
     "https://bytedance.sg.larkoffice.com/wiki/*"
   ];
 
-  // 加载保存的域名
   loadDomains();
 
-  // 添加新域名
   addDomainBtn.addEventListener('click', () => {
     addNewDomain();
   });
   
-  // 支持回车添加域名
   newDomainInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
       addNewDomain();
@@ -36,26 +32,24 @@ document.addEventListener('DOMContentLoaded', () => {
           chrome.storage.sync.set({ domains }, () => {
             loadDomains();
             newDomainInput.value = '';
-            showSaveStatus('域名已添加');
+            showSaveStatus('domain added');
           });
         } else {
-          showSaveStatus('域名已存在');
+          showSaveStatus('domain already exists');
         }
       });
     }
   }
 
-  // 重置为默认域名
   resetBtn.addEventListener('click', () => {
-    if (confirm('确定要重置为默认域名吗？这将删除所有自定义域名。')) {
+    if (confirm('Are you sure you want to reset to default domains?')) {
       chrome.storage.sync.set({ domains: defaultDomains }, () => {
         loadDomains();
-        showSaveStatus('已重置为默认域名');
+        showSaveStatus('reset to default domains');
       });
     }
   });
 
-  // 加载和显示域名列表
   function loadDomains() {
     chrome.storage.sync.get('domains', (data) => {
       const domains = data.domains || defaultDomains;
@@ -69,14 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
         li.appendChild(domainSpan);
         
         const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = '删除';
+        deleteBtn.textContent = 'Delete';
         deleteBtn.className = 'delete-btn';
         deleteBtn.addEventListener('click', () => {
           chrome.storage.sync.set({ 
             domains: domains.filter(d => d !== domain) 
           }, () => {
             loadDomains();
-            showSaveStatus('域名已删除');
+            showSaveStatus('domain deleted');
           });
         });
         
@@ -86,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 显示保存状态
   function showSaveStatus(message) {
     saveStatus.textContent = message;
     saveStatus.style.opacity = '1';

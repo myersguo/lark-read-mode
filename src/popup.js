@@ -4,10 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const addDomainBtn = document.getElementById('addDomain');
   const resetBtn = document.getElementById('resetDomains');
 
-  // 加载保存的域名
   loadDomains();
 
-  // 添加新域名
   addDomainBtn.addEventListener('click', () => {
     const newDomain = newDomainInput.value.trim();
     if (newDomain) {
@@ -24,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 重置为默认域名
   resetBtn.addEventListener('click', () => {
     const defaultDomains = [
       "https://bytedance.larkoffice.com/wiki/*",
@@ -33,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.storage.sync.set({ domains: defaultDomains }, loadDomains);
   });
 
-  // 加载和显示域名列表
   function loadDomains() {
     chrome.storage.sync.get('domains', (data) => {
       const domains = data.domains || [];
@@ -44,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         li.textContent = domain;
         
         const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = '删除';
+        deleteBtn.textContent = 'Delete';
         deleteBtn.addEventListener('click', () => {
           chrome.storage.sync.set({ 
             domains: domains.filter(d => d !== domain) 
