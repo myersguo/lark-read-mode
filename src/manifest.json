@@ -4,7 +4,6 @@
   "version": "1.0",
   "description": "Automatically set reading mode for Lark Wiki pages.",
   "permissions": [
-    "activeTab",
     "storage"
   ],
   "host_permissions": [

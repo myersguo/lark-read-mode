@@ -11,6 +11,7 @@
   "license": "Apache License 2.0",
   "dependencies": {
     "archiver": "^7.0.1",
-    "javascript-obfuscator": "^4.1.1"
+    "javascript-obfuscator": "^4.1.1",
+    "terser": "^5.39.0"
   }
 }
