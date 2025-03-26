@@ -12,7 +12,7 @@ A Chrome extension that automatically sets wiki pages to reading mode on Lark/Fe
 ## Installation
 
 ### From Chrome Web Store
-1. Visit [Chrome Web Store](https://chromewebstore.google.com/category/extensions) 
+1. Visit [Chrome Web Store](https://chromewebstore.google.com/detail/lark-wiki-autoread/jhhckjidgdegnebfmnepabfefnfjlgii) 
 2. Click "Add to Chrome"
 3. Confirm the installation
 
